@@ -6,8 +6,11 @@
 #include <vector>
 using namespace std;
 
-void printVector(vector<int> arr) {
+void printVector(vector<int> arr, string msg="") {
     cout << endl;
+    if(msg.size() > 0){
+        cout << msg << " ";
+    }
     for (int i = 0; i < arr.size(); i++) {
         cout << arr[i] << " ";
     }
