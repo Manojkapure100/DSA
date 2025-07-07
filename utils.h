@@ -6,7 +6,8 @@
 #include <vector>
 using namespace std;
 
-void printVector(vector<int> arr, string msg="") {
+template<typename T>
+void printVector(vector<T> arr, string msg="") {
     cout << endl;
     if(msg.size() > 0){
         cout << msg << " ";
