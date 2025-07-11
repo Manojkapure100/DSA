@@ -7,12 +7,6 @@ using namespace std;
 // 123654 --> 124653 --> 124356
 // 123574 --> 123754
 
-void swap(vector<int> &arr, int first, int second){
-    int temp = arr[first];
-    arr[first] = arr[second];
-    arr[second] = temp;
-}
-
 vector<int> getNextPermutation(std::vector<int> arr){
     // 1. find pivot element's position
     int pointer = arr.size() - 1;
@@ -23,7 +17,7 @@ vector<int> getNextPermutation(std::vector<int> arr){
     int start = 0;
     int end = arr.size() - 1;
     while (start <= end){
-        swap(arr,start,end);
+        swapElement(arr,start,end);
         start ++;
         end --;
     }
@@ -36,12 +30,12 @@ vector<int> getNextPermutation(std::vector<int> arr){
     while(arr[pivotPointer+1] < arr[lastPointer]){
     lastPointer --;
     }
-    swap(arr, pivotPointer, lastPointer);
+    swapElement(arr, pivotPointer, lastPointer);
 
     // 3. reverse rest of element (right side of pivot) from pivot element.
     int pointer2 = arr.size() - 1;
     while(pointer <= pointer2){ 
-    swap(arr, pointer, pointer2);
+    swapElement(arr, pointer, pointer2);
     pointer++;
     pointer2--;
     }

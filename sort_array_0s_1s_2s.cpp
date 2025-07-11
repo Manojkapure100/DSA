@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include "utils.h"
 
 std::vector<int> sortArray(std::vector<int> array){
         int numOfZero = 0, numOfOne = 0, numOfTwo = 0;
@@ -31,13 +32,6 @@ std::vector<int> sortArray(std::vector<int> array){
             numOfTwo-=1;
         }
     }
-    return array;
-}
-
-std::vector<int> swapElement(std::vector<int> &array, int firstPosition, int secondPosition){
-    int tmp = array[firstPosition];
-    array[firstPosition] = array[secondPosition];
-    array[secondPosition] = tmp;
     return array;
 }
 

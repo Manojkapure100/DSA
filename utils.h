@@ -34,8 +34,9 @@ void printVector(vector<vector<T>> arr, string msg="") {
     cout << endl;
 }
 
-void swapVectorElement(vector<int> &arr, int first, int second){
-    int tmp = arr[first];
+template<typename T>
+void swapElement(vector<T> &arr, int first, int second) {
+    T tmp = arr[first];
     arr[first] = arr[second];
     arr[second] = tmp;
 }
