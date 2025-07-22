@@ -24,14 +24,15 @@ void printVector(vector<vector<T>> arr, string msg="") {
     if(msg.size() > 0){
         cout << msg << " ";
     }
+    cout << "[ ";
     for (int i = 0; i < arr.size(); i++) {
         for (int j = 0; j < arr[i].size(); j++)
         {
             cout << arr[i][j] << " ";
         }
-        cout << "\t";
+        cout << ",";
     }
-    cout << endl;
+    cout << " ]" << endl;
 }
 
 template<typename T>
