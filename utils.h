@@ -30,7 +30,7 @@ void printVector(vector<vector<T>> arr, string msg="") {
         {
             cout << arr[i][j] << " ";
         }
-        cout << ",";
+        cout << ",\t";
     }
     cout << " ]" << endl;
 }
