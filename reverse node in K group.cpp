@@ -1,14 +1,7 @@
 #include<iostream>
+#include "utils.h"
 
 using namespace std;
-
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
 
 // 1,2,3,4,5
 ListNode* reverseKGroup(ListNode* head, int k) {
@@ -48,11 +41,6 @@ int main(){
     l4->next = l5;
 
     ListNode* ans = reverseKGroup(l1,2);
-    ListNode* tmp = ans;
-    while(tmp != NULL){
-        cout << tmp->val << "-->";
-        tmp = tmp->next;
-    }
-    cout << "NULL" << endl;
+    printLinkedNodes(ans);
     return 0;
 }

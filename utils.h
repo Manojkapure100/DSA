@@ -6,6 +6,14 @@
 #include <vector>
 using namespace std;
 
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 template<typename T>
 void printVector(vector<T> arr, string msg="") {
     cout << endl;
@@ -41,6 +49,14 @@ void swapElement(vector<T> &arr, int first, int second) {
     T tmp = arr[first];
     arr[first] = arr[second];
     arr[second] = tmp;
+}
+
+void printLinkedNodes(ListNode* head){
+    while(head != NULL){
+        cout << head->val << "-->";
+        head = head->next;
+    }
+    cout << "NULL" << endl;
 }
 
 #endif
