@@ -14,6 +14,37 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+struct btNode {
+    int val;
+    btNode* left;
+    btNode* right;
+    btNode(int v){
+        val = v;
+        left = right = NULL;
+    }
+};
+
+static int buildTreeIdx = -1;
+btNode* buildTree(vector<int> arr){
+    buildTreeIdx++;
+    if(arr[buildTreeIdx] == -1){
+        return NULL;
+    }
+    btNode* newNode = new btNode(arr[buildTreeIdx]);
+    newNode->left = buildTree(arr);
+    newNode->right = buildTree(arr);
+    return newNode;
+}
+
+void printBinaryTree(btNode* root) { // root, left, right
+    if(root == NULL){
+        return;
+    }
+    cout << root->val << "\t";
+    printBinaryTree(root->left);
+    printBinaryTree(root->right);
+}
+
 template<typename T>
 void printVector(vector<T> arr, string msg="") {
     cout << endl;
