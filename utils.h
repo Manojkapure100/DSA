@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <vector>
+#include<queue>
+
 using namespace std;
 
 struct ListNode {
@@ -43,6 +45,40 @@ void printBinaryTree(btNode* root) { // root, left, right
     cout << root->val << "\t";
     printBinaryTree(root->left);
     printBinaryTree(root->right);
+}
+
+void printBinaryTreeByLevel(btNode *root)
+{
+    queue<btNode *> queue;
+
+    queue.push(root);
+    queue.push(NULL);
+
+    while (!queue.empty())
+    {
+        btNode *currentNode = queue.front();
+        queue.pop();
+
+        if (currentNode == NULL)
+        {
+            if (queue.empty())
+            {
+                break;
+            }
+            else
+            {
+                cout << endl;
+                queue.push(NULL);
+                continue;
+            }
+        }
+
+        cout << currentNode->val << "\t";
+        if (currentNode->left != NULL)
+            queue.push(currentNode->left);
+        if (currentNode->right != NULL)
+            queue.push(currentNode->right);
+    }
 }
 
 template<typename T>
