@@ -30,6 +30,7 @@ static int buildTreeIdx = -1;
 btNode* buildTree(vector<int> arr){
     buildTreeIdx++;
     if(arr[buildTreeIdx] == -1){
+        if(buildTreeIdx == arr.size() - 1) buildTreeIdx = -1;
         return NULL;
     }
     btNode* newNode = new btNode(arr[buildTreeIdx]);
