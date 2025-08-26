@@ -64,6 +64,7 @@ void printBinaryTreeByLevel(btNode *root)
         {
             if (queue.empty())
             {
+                cout << endl;
                 break;
             }
             else
