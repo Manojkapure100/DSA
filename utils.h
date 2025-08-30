@@ -4,7 +4,8 @@
 
 #include <iostream>
 #include <vector>
-#include<queue>
+#include <queue>
+#include <climits>
 
 using namespace std;
 
@@ -45,6 +46,15 @@ void printBinaryTree(btNode* root) { // root, left, right
     }
     cout << root->val << "\t";
     printBinaryTree(root->left);
+    printBinaryTree(root->right);
+}
+
+void printInorderBinaryTree(btNode* root) { // root, left, right
+    if(root == NULL){
+        return;
+    }
+    printBinaryTree(root->left);
+    cout << root->val << "\t";
     printBinaryTree(root->right);
 }
 
