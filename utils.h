@@ -53,9 +53,9 @@ void printInorderBinaryTree(btNode* root) { // root, left, right
     if(root == NULL){
         return;
     }
-    printBinaryTree(root->left);
+    printInorderBinaryTree(root->left);
     cout << root->val << "\t";
-    printBinaryTree(root->right);
+    printInorderBinaryTree(root->right);
 }
 
 void printBinaryTreeByLevel(btNode *root)
