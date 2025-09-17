@@ -1,5 +1,5 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 #include "utils.h"
 
 using namespace std;
@@ -7,66 +7,81 @@ using namespace std;
 // 123654 --> 124653 --> 124356
 // 123574 --> 123754
 
-vector<int> getNextPermutation(std::vector<int> arr){
+vector<int> getNextPermutation(std::vector<int> arr)
+{
     // 1. find pivot element's position
     int pointer = arr.size() - 1;
-    while(arr[pointer] < arr[pointer-1]){
-    pointer --;
+    while (arr[pointer] < arr[pointer - 1])
+    {
+        pointer--;
     }
-    if(pointer == 0){
-    int start = 0;
-    int end = arr.size() - 1;
-    while (start <= end){
-        swapElement(arr,start,end);
-        start ++;
-        end --;
+    if (pointer == 0)
+    {
+        int start = 0;
+        int end = arr.size() - 1;
+        while (start <= end)
+        {
+            swapElement(arr, start, end);
+            start++;
+            end--;
+        }
+        return arr;
     }
-    return arr;
-    }
-    int pivotPointer = pointer -1;
+    int pivotPointer = pointer - 1;
 
     // 2. swap the smallest element (from right side of pivot element) with pivot element
     int lastPointer = arr.size() - 1;
-    while(arr[pivotPointer+1] < arr[lastPointer]){
-    lastPointer --;
+    while (arr[pivotPointer + 1] < arr[lastPointer])
+    {
+        lastPointer--;
     }
     swapElement(arr, pivotPointer, lastPointer);
 
     // 3. reverse rest of element (right side of pivot) from pivot element.
     int pointer2 = arr.size() - 1;
-    while(pointer <= pointer2){ 
-    swapElement(arr, pointer, pointer2);
-    pointer++;
-    pointer2--;
+    while (pointer <= pointer2)
+    {
+        swapElement(arr, pointer, pointer2);
+        pointer++;
+        pointer2--;
     }
     return arr;
 }
 
-vector<int> getNextPermutation2(vector<int> nums) {
+vector<int> getNextPermutation2(vector<int> nums)
+{
     int size = nums.size() - 1;
     int pivotPosition = -1;
     // 1. find pivot position
-    for (int i = size; i > 0; i--) {
-        if (nums[i] > nums[i - 1]) {
+    for (int i = size; i > 0; i--)
+    {
+        if (nums[i] > nums[i - 1])
+        {
             pivotPosition = i - 1;
             break;
         }
     }
-    if (pivotPosition == -1) {
+    if (pivotPosition == -1)
+    {
         int start = 0;
         int end = size;
-        while (start <= end) {
+        while (start <= end)
+        {
             int tmp = nums[start];
             nums[start] = nums[end];
             nums[end] = tmp;
             start++;
             end--;
         }
-    } else {
+    }
+    else
+    {
         // 2. swap pivot number with smallest number on right side, but that
         // number should be bigger then pivot.
-        for (int i = size; i > pivotPosition; i--) {
-            if (nums[pivotPosition] < nums[i]) {
+        for (int i = size; i > pivotPosition; i--)
+        {
+            if (nums[pivotPosition] < nums[i])
+            {
                 int tmp = nums[pivotPosition];
                 nums[pivotPosition] = nums[i];
                 nums[i] = tmp;
@@ -77,7 +92,8 @@ vector<int> getNextPermutation2(vector<int> nums) {
         // 3. revese rest of element (right element from pivot)
         int start = pivotPosition + 1;
         int end = size;
-        while (start <= end) {
+        while (start <= end)
+        {
             int tmp = nums[start];
             nums[start] = nums[end];
             nums[end] = tmp;
@@ -88,8 +104,9 @@ vector<int> getNextPermutation2(vector<int> nums) {
     return nums;
 }
 
-int main(){
-    std::vector<int> arr = {1,2,3};
+int main()
+{
+    std::vector<int> arr = {1, 2, 3};
     // std::vector<int> nextPermutation = getNextPermutation(arr);
     std::vector<int> nextPermutation = getNextPermutation2(arr);
     printVector(nextPermutation);
