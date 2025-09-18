@@ -116,7 +116,7 @@ void printVector(vector<vector<T>> arr, string msg="") {
         cout << "\t";
         for (int j = 0; j < arr[i].size(); j++)
         {
-            cout << arr[i][j];
+            cout << arr[i][j] << " ";
         }
         cout << ",\n";
     }
